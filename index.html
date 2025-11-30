@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مقدمة في تحليل البيانات - ملخص شامل</title>
+    
+    <!-- Google Fonts: Cairo for a modern Arabic look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f8fafc;
+            scroll-behavior: smooth;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #2563eb, #0891b2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: #2563eb;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="text-gray-800 antialiased">
+
+    <!-- Navigation -->
+    <nav class="bg-white/90 backdrop-blur-md fixed w-full z-50 shadow-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="bar-chart-2" class="h-8 w-8 text-blue-600"></i>
+                    <span class="font-bold text-xl text-gray-900 hidden md:block">تحليل البيانات</span>
+                </div>
+                <!-- Updated Navigation based on Agenda -->
+                <div class="hidden lg:flex space-x-6 space-x-reverse text-sm font-semibold">
+                    <a href="#intro" class="hover:text-blue-600 transition">ما هو التحليل؟</a>
+                    <a href="#vs" class="hover:text-blue-600 transition">المقارنة</a>
+                    <a href="#fields" class="hover:text-blue-600 transition">المجالات</a>
+                    <a href="#skills" class="hover:text-blue-600 transition">المهارات</a>
+                    <a href="#types" class="hover:text-blue-600 transition">الأنواع</a>
+                    <a href="#role" class="hover:text-blue-600 transition">الدور</a>
+                    <a href="#steps" class="hover:text-blue-600 transition">الخطوات</a>
+                    <a href="#powerbi" class="hover:text-blue-600 transition">Power BI</a>
+                </div>
+                <a href="#download" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition flex items-center gap-2 shadow-lg shadow-blue-600/20 text-sm">
+                    <i data-lucide="download" class="h-4 w-4"></i>
+                    <span>تحميل</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. What is Data Analysis -->
+    <header id="intro" class="pt-32 pb-20 bg-gradient-to-br from-blue-50 to-indigo-50 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-blue-100/50 skew-x-12 translate-x-20"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-center max-w-3xl mx-auto">
+                <div class="inline-block bg-blue-100 text-blue-800 px-4 py-1.5 rounded-full text-sm font-semibold mb-6">
+                    البند الأول في الأجندة
+                </div>
+                <h1 class="text-4xl md:text-6xl font-black text-gray-900 mb-6 leading-tight">
+                    ما هو <span class="gradient-text">تحليل البيانات</span>؟
+                </h1>
+                <p class="text-xl text-gray-600 mb-10 leading-relaxed">
+                    هو عملية فحص مجموعات البيانات للكشف عن معلومات مفيدة تُستخدم لاتخاذ قرارات مستنيرة. تُستخدم هذه العملية عبر الصناعات لتحسين الأداء واكتساب ميزة تنافسية.
+                </p>
+                
+                <!-- Data Definition -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 mb-8 max-w-2xl mx-auto">
+                    <h3 class="font-bold text-lg mb-2 text-blue-800">تعريف البيانات (Data)</h3>
+                    <p class="text-gray-600">مجموعة من الحقائق مثل الأرقام، الكلمات، القياسات، الملاحظات، أو وصف للأشياء.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-right max-w-2xl mx-auto">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-start gap-4">
+                        <div class="bg-blue-100 p-3 rounded-lg text-blue-600 mt-1">
+                            <i data-lucide="align-left" class="h-6 w-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">بيانات نوعية (Qualitative)</h3>
+                            <p class="text-sm text-gray-500">معلومات وصفية (مثل الألوان، الأسماء، التسميات).</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-start gap-4">
+                        <div class="bg-indigo-100 p-3 rounded-lg text-indigo-600 mt-1">
+                            <i data-lucide="hash" class="h-6 w-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">بيانات كمية (Quantitative)</h3>
+                            <p class="text-sm text-gray-500">معلومات رقمية (مثل الإحصاءات، القياسات).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. Data Analysis VS Data Science -->
+    <section id="vs" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 section-title">تحليل البيانات مقابل علم البيانات</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Data Analyst -->
+                <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 card-hover relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-2 h-full bg-blue-500"></div>
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="bg-white p-4 rounded-xl shadow-sm">
+                            <i data-lucide="search" class="h-8 w-8 text-blue-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold">محلل البيانات (Data Analyst)</h3>
+                    </div>
+                    <ul class="space-y-4 text-gray-600">
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="check-circle" class="h-5 w-5 text-green-500"></i>
+                            يركز على تحليل البيانات الحالية لتوليد رؤى.
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="check-circle" class="h-5 w-5 text-green-500"></i>
+                            الإجابة على "ماذا حدث؟" و"لماذا حدث؟".
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="check-circle" class="h-5 w-5 text-green-500"></i>
+                            إنتاج التقارير ولوحات المعلومات.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Data Scientist -->
+                <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 card-hover relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-2 h-full bg-indigo-500"></div>
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="bg-white p-4 rounded-xl shadow-sm">
+                            <i data-lucide="cpu" class="h-8 w-8 text-indigo-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold">عالم البيانات (Data Scientist)</h3>
+                    </div>
+                    <ul class="space-y-4 text-gray-600">
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="check-circle" class="h-5 w-5 text-green-500"></i>
+                            يركز على النمذجة والخوارزميات المعقدة.
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="check-circle" class="h-5 w-5 text-green-500"></i>
+                            الإجابة على "ماذا سيحدث؟" (التنبؤ).
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="check-circle" class="h-5 w-5 text-green-500"></i>
+                            بناء أنظمة التعلم الآلي (Machine Learning).
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Fields of Data Analysis (NEW) -->
+    <section id="fields" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 section-title">مجالات تحليل البيانات</h2>
+                <p class="text-gray-600 mt-4">تحليل البيانات موجود في كل المجالات تقريبًا</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 text-center">
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition">
+                    <i data-lucide="shopping-cart" class="h-8 w-8 text-blue-500 mx-auto mb-3"></i>
+                    <h3 class="font-bold">المبيعات<br>(Sales)</h3>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition">
+                    <i data-lucide="stethoscope" class="h-8 w-8 text-red-500 mx-auto mb-3"></i>
+                    <h3 class="font-bold">الطب<br>(Medical)</h3>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition">
+                    <i data-lucide="pill" class="h-8 w-8 text-green-500 mx-auto mb-3"></i>
+                    <h3 class="font-bold">الأدوية<br>(Pharma)</h3>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition">
+                    <i data-lucide="megaphone" class="h-8 w-8 text-orange-500 mx-auto mb-3"></i>
+                    <h3 class="font-bold">التسويق<br>(Marketing)</h3>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition">
+                    <i data-lucide="briefcase" class="h-8 w-8 text-purple-500 mx-auto mb-3"></i>
+                    <h3 class="font-bold">العمليات<br>(Business Ops)</h3>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition">
+                    <i data-lucide="home" class="h-8 w-8 text-teal-500 mx-auto mb-3"></i>
+                    <h3 class="font-bold">العقارات<br>(Real Estate)</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Skills Needed for Data Analyst -->
+    <section id="skills" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold section-title">المهارات المطلوبة</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                        <i data-lucide="code" class="text-blue-400"></i>
+                        المهارات التقنية (Technical Skills)
+                    </h3>
+                    <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-slate-700/50 p-3 rounded text-center hover:bg-slate-600 transition">Excel</div>
+                            <div class="bg-slate-700/50 p-3 rounded text-center hover:bg-slate-600 transition">SQL</div>
+                            <div class="bg-slate-700/50 p-3 rounded text-center hover:bg-slate-600 transition">Power BI</div>
+                            <div class="bg-slate-700/50 p-3 rounded text-center hover:bg-slate-600 transition">Python/R</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                        <i data-lucide="users" class="text-pink-400"></i>
+                        المهارات الشخصية (Soft Skills)
+                    </h3>
+                    <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
+                        <ul class="space-y-3">
+                            <li class="flex items-center justify-between p-2 hover:bg-slate-700 rounded transition">
+                                <span>مهارات التواصل (Communication)</span>
+                                <i data-lucide="message-circle" class="h-4 w-4 text-pink-500"></i>
+                            </li>
+                            <li class="flex items-center justify-between p-2 hover:bg-slate-700 rounded transition">
+                                <span>العمل الجماعي (Teamwork)</span>
+                                <i data-lucide="users" class="h-4 w-4 text-pink-500"></i>
+                            </li>
+                            <li class="flex items-center justify-between p-2 hover:bg-slate-700 rounded transition">
+                                <span>حل المشكلات (Problem Solving)</span>
+                                <i data-lucide="puzzle" class="h-4 w-4 text-pink-500"></i>
+                            </li>
+                            <li class="flex items-center justify-between p-2 hover:bg-slate-700 rounded transition">
+                                <span>التفكير الناقد (Critical Thinking)</span>
+                                <i data-lucide="brain-circuit" class="h-4 w-4 text-pink-500"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Types Of Data Analytics -->
+    <section id="types" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 section-title">أنواع تحليلات البيانات</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                
+                <div class="bg-blue-50 p-6 rounded-xl border-t-4 border-blue-500 text-center">
+                    <div class="text-blue-600 font-bold text-2xl mb-2">01</div>
+                    <h4 class="font-bold text-gray-900 mb-2">وصفي (Descriptive)</h4>
+                    <p class="text-sm text-gray-600 font-medium">ماذا حدث؟</p>
+                    <p class="text-xs text-gray-500 mt-2">يعتمد على البيانات التاريخية.</p>
+                </div>
+
+                <div class="bg-cyan-50 p-6 rounded-xl border-t-4 border-cyan-500 text-center">
+                    <div class="text-cyan-600 font-bold text-2xl mb-2">02</div>
+                    <h4 class="font-bold text-gray-900 mb-2">تشخيصي (Diagnostic)</h4>
+                    <p class="text-sm text-gray-600 font-medium">لماذا حدث ذلك؟</p>
+                    <p class="text-xs text-gray-500 mt-2">البحث عن الأسباب والجذور.</p>
+                </div>
+
+                <div class="bg-indigo-50 p-6 rounded-xl border-t-4 border-indigo-500 text-center">
+                    <div class="text-indigo-600 font-bold text-2xl mb-2">03</div>
+                    <h4 class="font-bold text-gray-900 mb-2">تنبؤي (Predictive)</h4>
+                    <p class="text-sm text-gray-600 font-medium">ماذا سيحدث؟</p>
+                    <p class="text-xs text-gray-500 mt-2">توقع المستقبل.</p>
+                </div>
+
+                <div class="bg-purple-50 p-6 rounded-xl border-t-4 border-purple-500 text-center">
+                    <div class="text-purple-600 font-bold text-2xl mb-2">04</div>
+                    <h4 class="font-bold text-gray-900 mb-2">توجيهي (Prescriptive)</h4>
+                    <p class="text-sm text-gray-600 font-medium">ماذا يجب أن نفعل؟</p>
+                    <p class="text-xs text-gray-500 mt-2">توصيات لتحقيق الهدف.</p>
+                </div>
+
+                <div class="bg-pink-50 p-6 rounded-xl border-t-4 border-pink-500 text-center">
+                    <div class="text-pink-600 font-bold text-2xl mb-2">05</div>
+                    <h4 class="font-bold text-gray-900 mb-2">إدراكي (Cognitive)</h4>
+                    <p class="text-sm text-gray-600 font-medium">ماذا لو؟</p>
+                    <p class="text-xs text-gray-500 mt-2">التعلم وتغيير الظروف.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Data Analysis as a Role (Detailed - Slides 20-21) -->
+    <section id="role" class="py-20 bg-gradient-to-r from-blue-600 to-indigo-700 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row items-start gap-12">
+                <div class="md:w-3/5">
+                    <h2 class="text-3xl font-bold mb-6">1. المعرفة بالمجال (Domain Knowledge)</h2>
+                    <p class="text-xl mb-6 leading-relaxed font-light">
+                        تعتبر المعرفة بالمجال هي الأهم. "لا يمكنك حل مشكلة لا تفهمها أبدًا". لذلك، يجب عليك فهم "البزنس" الذي تحاول حله.
+                    </p>
+                    
+                    <!-- Slide 21 Example -->
+                    <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/20 mt-4">
+                        <h4 class="font-bold text-yellow-300 text-lg mb-3 flex items-center gap-2">
+                            <i data-lucide="lightbulb" class="h-5 w-5"></i>
+                            مثال تطبيقي: مشكلة في التسويق
+                        </h4>
+                        <p class="text-sm leading-7 opacity-90">
+                            يجب أن نفهم احتياجات المنتج والعميل الذي نقدم له المنتج حتى نتمكن من طلب البيانات المناسبة وإنتاج الحل.
+                        </p>
+                    </div>
+                </div>
+                <div class="md:w-2/5 flex flex-col justify-center items-center mt-8 md:mt-0">
+                     <div class="bg-white text-blue-900 p-8 rounded-2xl w-full shadow-2xl">
+                        <span class="block text-4xl font-black mb-4 text-center">القرار</span>
+                        <p class="text-sm text-center font-semibold text-gray-600">
+                            بناءً على البيانات التاريخية، يعرف المحلل معلومات مهمة جداً عن منتج معين يمكن أن تزيد المبيعات.
+                        </p>
+                        <div class="mt-4 text-center">
+                            <span class="inline-block bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full font-bold">محلل البيانات = صانع القرار</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Steps When Approaching New Project (Detailed - Slides 22-24) -->
+    <section id="steps" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold section-title">خطوات المشروع والتعامل مع البيانات</h2>
+            </div>
+            
+            <div class="relative">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+                    
+                    <!-- Step 2: Gather Data (Slide 22) -->
+                    <div class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-blue-600 transform transition hover:-translate-y-2">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold text-xl">2</div>
+                            <h3 class="text-xl font-bold text-gray-900">جمع البيانات (Gather Data)</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">بعد فهم المشكلة، نبدأ بجمع البيانات لدعم التحليل.</p>
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h5 class="font-bold text-blue-800 text-sm mb-2">أسئلة للتحليل:</h5>
+                            <ul class="space-y-2 text-sm text-gray-700">
+                                <li class="flex items-start gap-2">
+                                    <i data-lucide="help-circle" class="h-4 w-4 text-blue-500 mt-1"></i>
+                                    <span>كيف حدثت المشكلة؟</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i data-lucide="clock" class="h-4 w-4 text-blue-500 mt-1"></i>
+                                    <span>كم ستستمر؟</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i data-lucide="tool" class="h-4 w-4 text-blue-500 mt-1"></i>
+                                    <span>كيف نحل المشكلة؟</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Clean Data (Slide 23) -->
+                    <div class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-cyan-600 transform transition hover:-translate-y-2">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 bg-cyan-100 text-cyan-600 rounded-full flex items-center justify-center font-bold text-xl">3</div>
+                            <h3 class="text-xl font-bold text-gray-900">جودة وتنظيف البيانات</h3>
+                        </div>
+                        <p class="text-red-500 text-sm font-semibold mb-4">لا يمكن إجراء تحليل دقيق ببيانات رديئة الجودة.</p>
+                        <div class="bg-cyan-50 p-4 rounded-lg">
+                            <h5 class="font-bold text-cyan-800 text-sm mb-2">إجراءات التنظيف (Cleaning):</h5>
+                            <ul class="space-y-2 text-sm text-gray-700">
+                                <li class="flex items-start gap-2">
+                                    <i data-lucide="trash-2" class="h-4 w-4 text-cyan-500 mt-1"></i>
+                                    <span>إزالة التكرارات (Remove duplicates).</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i data-lucide="alert-circle" class="h-4 w-4 text-cyan-500 mt-1"></i>
+                                    <span>معالجة القيم المفقودة (Handle missing values).</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i data-lucide="check-square" class="h-4 w-4 text-cyan-500 mt-1"></i>
+                                    <span>توحيد التنسيقات (Standardize formats).</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <p class="mt-4 text-xs text-gray-500">وهذا يساعد في إنتاج نتائج موثوقة وصالحة.</p>
+                    </div>
+
+                    <!-- Step 4: Report Results (Slide 24) -->
+                    <div class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-indigo-600 transform transition hover:-translate-y-2">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center font-bold text-xl">4</div>
+                            <h3 class="text-xl font-bold text-gray-900">تقرير النتائج (Reporting)</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">لا يمكننا نقل الرؤى بفعالية دون أدوات العرض المناسبة.</p>
+                        <div class="bg-indigo-50 p-4 rounded-lg">
+                            <h5 class="font-bold text-indigo-800 text-sm mb-2">أدوات العرض (Visualization):</h5>
+                            <ul class="space-y-2 text-sm text-gray-700">
+                                <li class="flex items-start gap-2">
+                                    <i data-lucide="bar-chart" class="h-4 w-4 text-indigo-500 mt-1"></i>
+                                    <span>المخططات والرسوم البيانية (Charts and graphs).</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i data-lucide="layout-dashboard" class="h-4 w-4 text-indigo-500 mt-1"></i>
+                                    <span>لوحات المعلومات (Dashboards).</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i data-lucide="mouse-pointer" class="h-4 w-4 text-indigo-500 mt-1"></i>
+                                    <span>العروض التفاعلية (Interactive visualizations).</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <p class="mt-4 text-xs text-gray-500">يساعد أصحاب المصلحة على فهم التحليل واتخاذ القرارات.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Introduction to Power BI -->
+    <section id="powerbi" class="py-20 bg-amber-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-amber-100 flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 bg-amber-400 text-white rounded flex items-center justify-center font-bold text-2xl">
+                            <i data-lucide="bar-chart" class="h-6 w-6"></i>
+                        </div>
+                        <h2 class="text-4xl font-black text-gray-900">مقدمة في Power BI</h2>
+                    </div>
+                    <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+                        أداة ذكاء أعمال من مايكروسوفت لتحليل البيانات وعرضها. تمكنك من دمج مصادر متعددة وإنشاء لوحات تفاعلية.
+                    </p>
+                    
+                    <h4 class="font-bold text-lg mb-4 text-amber-700">مكونات الـ "Power":</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-2 bg-amber-50 p-2 rounded">
+                            <span class="w-6 h-6 bg-amber-500 text-white rounded-full flex items-center justify-center text-sm font-bold">1</span>
+                            <span>Power Query Editor</span>
+                        </li>
+                        <li class="flex items-center gap-2 bg-amber-50 p-2 rounded">
+                            <span class="w-6 h-6 bg-amber-500 text-white rounded-full flex items-center justify-center text-sm font-bold">2</span>
+                            <span>Data Modeling</span>
+                        </li>
+                        <li class="flex items-center gap-2 bg-amber-50 p-2 rounded">
+                            <span class="w-6 h-6 bg-amber-500 text-white rounded-full flex items-center justify-center text-sm font-bold">3</span>
+                            <span>DAX (Data Analysis Expressions)</span>
+                        </li>
+                        <li class="flex items-center gap-2 bg-amber-50 p-2 rounded">
+                            <span class="w-6 h-6 bg-amber-500 text-white rounded-full flex items-center justify-center text-sm font-bold">4</span>
+                            <span>Power BI Service (Online)</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="bg-gradient-to-br from-amber-400 to-yellow-500 rounded-2xl p-6 text-white shadow-lg">
+                        <h3 class="text-2xl font-bold mb-6 border-b border-white/30 pb-4">المميزات (Advantages)</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="smile" class="h-6 w-6 shrink-0 mt-0.5"></i>
+                                <span><strong>واجهة سهلة:</strong> سهولة في الاستخدام والتعلم.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="database" class="h-6 w-6 shrink-0 mt-0.5"></i>
+                                <span><strong>تكامل البيانات:</strong> سحب البيانات من Excel, SQL, Web بسهولة.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="layout" class="h-6 w-6 shrink-0 mt-0.5"></i>
+                                <span><strong>لوحات تفاعلية:</strong> رسوم بيانية ديناميكية وجذابة.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="zap" class="h-6 w-6 shrink-0 mt-0.5"></i>
+                                <span><strong>بيانات لحظية:</strong> دعم للبيانات المباشرة (Real-time).</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <footer id="download" class="bg-gray-900 text-white py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-2xl font-bold mb-6">هل تريد قراءة الملف الأصلي؟</h2>
+            <p class="text-gray-400 mb-8 max-w-2xl mx-auto">
+                الملف الأصلي يحتوي على 38 شريحة بالتفصيل الكامل.
+            </p>
+            <a href="1-Introduction to Data Analytics.pptx.pdf" download class="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-full transition transform hover:scale-105 shadow-xl shadow-blue-900/50">
+                <i data-lucide="file-text" class="h-6 w-6"></i>
+                تحميل ملف العرض التقديمي (PDF)
+            </a>
+            <p class="mt-8 text-sm text-gray-500">تم إنشاء هذه الصفحة بناءً على محتوى "رواد مصر الرقمية - وزارة الاتصالات وتكنولوجيا المعلومات".</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
